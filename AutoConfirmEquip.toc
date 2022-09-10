@@ -1,0 +1,8 @@
+## Interface: 90207
+## Title: Auto-Confirm Equip
+## Notes: Eliminates the confirmation dialog when equipping BoEs below a certain quality threshold.
+## Version: 1.0
+## Author: Mot
+## X-Wago-ID:
+
+main.lua
