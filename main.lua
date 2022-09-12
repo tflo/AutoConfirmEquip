@@ -23,17 +23,16 @@ f:SetScript('OnEvent',
 	end
 )
 
---------------------------------------------------------------------------------
 
---[[ Notes:
+--[[ Notes =====================================================================
 
 	Inspired by:
 	https://www.mmo-champion.com/threads/2000469-Legion-wardrobe-equipping-add-
 	on-suggestion#4
 
-]]
+============================================================================]]--
 
---[[ Legal:
+--[[ License ===================================================================
 
 	Copyright © 2022 Thomas Floeren
 
@@ -52,4 +51,4 @@ f:SetScript('OnEvent',
 	You should have received a copy of the GNU General Public License along with
 	AutoConfirmEquip. If not, see <https://www.gnu.org/licenses/>.
 
-]]
+============================================================================]]--
