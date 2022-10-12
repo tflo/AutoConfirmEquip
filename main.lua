@@ -11,17 +11,15 @@ local maxQuality = 2 -- Max quality allowed to equip without confirmation
 
 --------------------------------------------------------------------------------
 
-local f = CreateFrame('frame')
-f:RegisterEvent('EQUIP_BIND_CONFIRM')
-f:SetScript('OnEvent',
-	function(self, event, slot)
-		if (GetCursorInfo()) == 'item' then
-			if tonumber(format('%3$s', GetItemInfo(format('%3$s',GetCursorInfo())))) <= maxQuality then
-				EquipPendingItem(slot)
-			end
+local f = CreateFrame 'frame'
+f:RegisterEvent 'EQUIP_BIND_CONFIRM'
+f:SetScript('OnEvent', function(self, event, slot)
+	if (GetCursorInfo()) == 'item' then
+		if tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo())))) <= maxQuality then
+			EquipPendingItem(slot)
 		end
 	end
-)
+end)
 
 
 --[[ Notes =====================================================================
