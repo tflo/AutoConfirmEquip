@@ -27,4 +27,6 @@ For example, if you set the max allowed quality to 3, then you can confirmation-
 
 I recommend to not set the value to anything other than 2 or 3.
 
+Feel free to post suggestions or issues in the [GitHub Issues](https://github.com/tflo/PetWalker/issues) of the repo!
+__Please do not post issues or suggestions in the comments on Curseforge.__
 
