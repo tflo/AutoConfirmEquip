@@ -1,6 +1,6 @@
-## Interface: 100002
+## Interface: 100005
 ## Title: Auto-Confirm Equip
-## Version: 1.0.3
+## Version: 1.0.3.1
 ## Notes: Eliminates the confirmation dialog when equipping BoEs below a certain quality threshold.
 ## Author: Mot
 
