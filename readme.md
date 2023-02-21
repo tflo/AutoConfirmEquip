@@ -10,8 +10,8 @@ This is a super-lightweight addon (10 lines of code) that does only one thing: E
 
 There are already addons that eliminate confirmation dialogs, but I had two problems with those:
 
-1. They eliminate all equip confirmations, regardless of gear quality.
-2. Often these addons are bloated with nonsense options, in particular options to eliminate also a plethora of other confirmation dialogs that I would never eliminate because they are absolutely useful (for example the one before setting the hearthstone to a new inn, which is something that can easily be misclicked in the gossip options).
+- They eliminate all equip confirmations, regardless of gear quality.
+- Often these addons are bloated with nonsense options, in particular options to eliminate also a plethora of other confirmation dialogs that I would never eliminate because they are absolutely useful (for example the one before setting the hearthstone to a new inn, which is something that can easily be misclicked in the gossip options).
 
 A confirmation when equipping BoEs is – theoretically – also useful. The problem is that after a transmog run we often want to equip a dozen or more pieces for the new appearances, and then the confirmation becomes not only annoying but also dangerously meaningless because it is spammy, which in turn forces us to mechanically click it away, losing all attention to the item we are going to equip.
 
@@ -27,6 +27,6 @@ For example, if you set the max allowed quality to 3, then you can confirmation-
 
 I recommend to not set the value to anything other than 2 or 3.
 
-Feel free to post suggestions or issues in the [GitHub Issues](https://github.com/tflo/PetWalker/issues) of the repo!
+Feel free to post suggestions or issues in the [GitHub Issues](https://github.com/tflo/AutoConfirmEquip/issues) of the repo!
 __Please do not post issues or suggestions in the comments on Curseforge.__
 
