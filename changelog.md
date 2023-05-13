@@ -1,3 +1,12 @@
+#### 2.0 (2023-05-13)
+- Complete rewrite, with configurable quality levels. With a slash command you can now configure the qualities that should be equippable without confirmation: 
+  - Examples: `/aceq 0123`, `/aceq 02`, `/aceq 2`. For details, see description or in-game help text.
+  - If `/aceq` conflicts with other addons, use `/autoconfirmequip`. 
+  - Type just `/aceq` or `/autoconfirmequip` to get in-game help on the configuration, including a quality index. It also displays the currently set quality levels.
+  - The defaults are the same as with previous versions (Poor, Common, Uncommon), so if those are fine for you, you don't need to do anything.
+- Added in-game icon.
+- Updated readme/description.
+
 #### 1.0.4 (2023-05-02)
 - toc: updated for 10.1 
 
