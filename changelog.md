@@ -1,3 +1,7 @@
+#### 2.0.1 (2023-07-12)
+- toc updated for 10.1.5.
+  - I have not yet had a chance to really test the addon with 10.1.5, but as far as I know there are no relevant API changes. If I find any problems, you'll get a content update soon.
+
 #### 2.0 (2023-05-13)
 - Complete rewrite, with configurable quality levels. With a slash command you can now configure the qualities that should be equippable without confirmation: 
   - Examples: `/aceq 0123`, `/aceq 02`, `/aceq 2`. For details, see description or in-game help text.
