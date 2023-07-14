@@ -1,0 +1,14 @@
+{
+	"Lua.diagnostics.globals": [
+		"SlashCmdList",
+		"IconIntroTracker",
+		"SecureHandlerWrapScript",
+		"LootFrame",
+		"PlayerFrame",
+		"TargetFrame",
+		"BattlePetTooltip",
+		"HelpTip",
+		"GameTooltip_AddNormalLine",
+		"autoconfirmequip_database"
+	]
+}

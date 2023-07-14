@@ -32,3 +32,17 @@ If you just type `/aceq`, you will get a help text on how to set the qualities, 
 Feel free to post suggestions or issues in the [GitHub Issues](https://github.com/tflo/AutoConfirmEquip/issues) of the repo!
 __Please do not post issues or suggestions in the comments on Curseforge.__
 
+---
+
+__My other addons:__
+
+- [___PetWalker___](https://www.curseforge.com/wow/addons/petwalker): Never lose your pet again (…or randomly summon a
+  new one).
+- [___Auto Quest Tracker Mk III___](https://www.curseforge.com/wow/addons/auto-quest-tracker-mk-iii): Continuation of
+  the one and only original. Up to date and new features.
+- [___Move 'em All___](https://www.curseforge.com/wow/addons/move-em-all): Mass move items/stacks from your bags to
+  wherever. Works also with bag addons.
+- [___Action Bar Button Growth Direction___](https://www.curseforge.com/wow/addons/action-bar-button-growth-direction):
+  Fix the button growth direction of multi-row action bars to what is was before Dragonflight (top --> bottom).
+- [___EditBox Font Improver___](https://www.curseforge.com/wow/addons/editbox-font-improver): Better fonts for
+  your macro/script edit boxes.
