@@ -1,3 +1,8 @@
+#### 2.0.2 (2023-09-06)
+
+- toc bump 100107.
+- Minor optimizations.
+
 #### 2.0.1 (2023-07-12)
 
 - toc updated for 10.1.5.

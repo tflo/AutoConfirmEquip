@@ -1,6 +1,17 @@
 local addon_name, a = ...
 autoconfirmequip_database = autoconfirmequip_database or {}
 
+local _
+local CreateFrame = _G.CreateFrame
+local GetCursorInfo = _G.GetCursorInfo
+local tonumber = _G.tonumber
+local format = _G.format
+local EquipPendingItem = _G.EquipPendingItem
+local ipairs = _G.ipairs
+local GetItemInfo = _G.GetItemInfo
+local strtrim = _G.strtrim
+local gmatch = _G.gmatch
+
 local C_ACEQ = '\124cff2196f3'
 local C_KW = '\124cnORANGE_FONT_COLOR:'
 local C_EMPH = '\124cnYELLOW_FONT_COLOR:'
