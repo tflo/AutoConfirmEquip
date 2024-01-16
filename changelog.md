@@ -1,4 +1,4 @@
-#### 2.0.3 (2024-01-16)
+#### 2.0.4 (2024-01-16)
 
 - Just a toc bump for 10.2.5. Compatibility update will follow if needed.
 
