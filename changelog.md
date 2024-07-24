@@ -1,3 +1,8 @@
+#### 2.0.7 (2024-07-24)
+
+- No issues found with TWW, so far.
+- toc updated for TWW 110000.
+
 #### 2.0.6 (2024-05-08)
 
 - toc bump only (100207). Addon update will follow as needed.

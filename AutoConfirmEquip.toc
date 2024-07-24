@@ -1,19 +1,14 @@
-## Interface: 100207
+## Interface: 110002, 110000
 ## Title: Auto-Confirm Equip
 ## Version: 2.0.6
-# IconTexture: Interface/AddOns/AutoConfirmEquip/icon
 ## IconTexture: Interface/PaperDollInfoFrame/UI-EquipmentManager-Toggle-Highlight
 ## Notes: Eliminates the confirmation dialog when equipping BoEs of a configurable quality level.
-## Author: Mot
-
-# Dependencies:
-# OptionalDeps:
-# LoadWith:
-# LoadOnDemand:
-
+## Author: Mot (@6mot, @tflo)
 ## X-Wago-ID: RBKp5yGE
 ## X-Curse-Project-ID: 784763
-
+## X-Category: Equipment, Bags
+## X-License: GPLv3
+## X-Localizations: enUS
 ## SavedVariables: autoconfirmequip_database
 # SavedVariablesPerCharacter:
 
@@ -31,7 +26,7 @@ main.lua
 
 # License ======================================================================
 #
-# Copyright © 2022–2023 Thomas Floeren
+# Copyright © 2022–2024 Thomas Floeren
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
