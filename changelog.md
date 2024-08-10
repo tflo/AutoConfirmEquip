@@ -1,3 +1,16 @@
+To see all commits, including all alpha changes, [*go here*](https://github.com/tflo/PetWalker/commits/master/).
+
+---
+
+## Releases
+
+#### 2.1.0 (2024-08-10)
+
+- New defaults (active at first load): Poor (0, gray), Uncommon (2, green), Rare (3, blue), and Heirloom (7) can be equipped without confirmation dialog.
+    - Heirlooms can be regenerated, so no reason for a confirmation.
+    - White gear (quality 1) is relatively rare (compared to grays, greens, and blues), and the chance of it being something special is relatively high. So a confirmation won’t hurt, I think.
+    - This config can be (re)created with the command `/aceq 0237`.
+
 #### 2.0.7 (2024-07-24)
 
 - No issues found with TWW, so far.

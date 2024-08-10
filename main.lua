@@ -51,7 +51,7 @@ ef:SetScript('OnEvent', function(self, event, ...)
 		if ... == addon_name then
 			ef:UnregisterEvent 'ADDON_LOADED'
 			a.db = autoconfirmequip_database
-			a.db.qualities_allowed = a.db.qualities_allowed or { 0, 1, 2 }
+			a.db.qualities_allowed = a.db.qualities_allowed or { 0, 2, 3, 7 }
 		end
 	else
 		local slot = ...

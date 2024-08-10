@@ -4,7 +4,7 @@ Addon for WoW Retail.
 
 ## Summary
 
-This is a super-lightweight addon that does only one thing: Eliminating the confirmation dialog when equipping BoEs of a configurable quality (defaults: Poor, Common, Uncommon). 
+This is a super-lightweight addon that does only one thing: Eliminating the confirmation dialog when equipping BoEs of a configurable quality (No Confirmation defaults: Poor (0, gray), Uncommon (2, green), Rare (3, blue), Heirloom (7)).
 
 ## What the addon does, and why
 
@@ -34,7 +34,7 @@ __Please do not post issues or suggestions in the comments on Curseforge.__
 
 ---
 
-__My other addons:__
+__Other addons by me:__
 
 - [___PetWalker___](https://www.curseforge.com/wow/addons/petwalker): Never lose your pet again (…or randomly summon a
   new one).
@@ -46,3 +46,7 @@ __My other addons:__
   Fix the button growth direction of multi-row action bars to what is was before Dragonflight (top --> bottom).
 - [___EditBox Font Improver___](https://www.curseforge.com/wow/addons/editbox-font-improver): Better fonts for
   your macro/script edit boxes.
+
+__WeakAuras:__
+
+- [___Stats Mini___](https://wago.io/S4023p3Im): A *very* compact but beautiful and feature-loaded stats display: primary/secondary stats, *all* defensive stats (also against target), GCD, speed (rating/base/actual/Skyriding), iLevel (equipped/overall/difference), char level +progress.
