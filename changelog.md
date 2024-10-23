@@ -4,6 +4,10 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 2.1.1 (2024-10-23)
+
+- toc bump, no changes.
+
 #### 2.1.0 (2024-08-10)
 
 - New defaults (active at first load): Poor (0, gray), Uncommon (2, green), Rare (3, blue), and Heirloom (7) can be equipped without confirmation dialog.
