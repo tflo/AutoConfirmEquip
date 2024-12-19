@@ -1,8 +1,14 @@
-To see all commits, including all alpha changes, [*go here*](https://github.com/tflo/PetWalker/commits/master/).
+To see all commits, including all alpha changes, [*go here*](https://github.com/tflo/AutoConfirmEquip/commits/master/).
 
 ---
 
 ## Releases
+
+#### 2.1.2 (2024-12-19)
+
+- toc bump to 110007 (WoW Retail 11.0.7).
+- No content changes. If I notice that the addon needs an update for 11.0.7, I will release one.
+- I currently do not have much time to play, so if you notice weird/unusual behavior with 11.0.7 and don’t see an update from my part, please let me know [here](https://github.com/tflo/AutoConfirmEquip/issues).
 
 #### 2.1.1 (2024-10-23)
 
