@@ -1,16 +1,26 @@
-## Interface: 110007
+## Interface: 110100
 ## Title: Auto-Confirm Equip
-## Version: 2.1.2
+## Version: 2.1.3
 ## IconTexture: Interface/PaperDollInfoFrame/UI-EquipmentManager-Toggle-Highlight
 ## Notes: Eliminates the confirmation dialog when equipping BoEs of a configurable quality level.
+## Category: Inventory
+## Category-enUS: Inventory
+## Category-deDE: Inventar
+## Category-esES: Inventario
+## Category-esMX: Inventario
+## Category-frFR: Inventaire
+## Category-itIT: Inventario
+## Category-koKR: 소지품
+## Category-ptBR: Inventário
+## Category-ruRU: Предметы
+## Category-zhCN: 物品栏
+## Category-zhTW: 物品欄
 ## Author: Mot (@6mot, @tflo)
 ## X-Wago-ID: RBKp5yGE
 ## X-Curse-Project-ID: 784763
-## X-Category: Equipment, Bags
 ## X-License: GPLv3
 ## X-Localizations: enUS
 ## SavedVariables: autoconfirmequip_database
-# SavedVariablesPerCharacter:
 
 main.lua
 
@@ -26,7 +36,7 @@ main.lua
 
 # License ======================================================================
 #
-# Copyright © 2022–2024 Thomas Floeren
+# Copyright © 2022–2025 Thomas Floeren
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
