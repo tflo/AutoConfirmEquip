@@ -4,6 +4,10 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 2.1.4 (2025-04-23)
+
+- toc bump to 110105.
+
 #### 2.1.3 (2025-02-26)
 
 - Added category to toc.
