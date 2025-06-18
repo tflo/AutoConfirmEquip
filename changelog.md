@@ -4,6 +4,11 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 2.1.5 (2025-06-18)
+
+- toc: Added `AllowAddOnTableAccess: 1`
+- toc: Bumped Interface to `110107`
+
 #### 2.1.4 (2025-04-23)
 
 - toc bump to 110105.

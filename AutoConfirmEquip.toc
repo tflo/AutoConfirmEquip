@@ -1,6 +1,6 @@
-## Interface: 110105
+## Interface: 110107
 ## Title: Auto-Confirm Equip
-## Version: 2.1.4
+## Version: 2.1.5
 ## IconTexture: Interface/PaperDollInfoFrame/UI-EquipmentManager-Toggle-Highlight
 ## Notes: Eliminates the confirmation dialog when equipping BoEs of a configurable quality level.
 ## Category: Inventory
@@ -16,6 +16,7 @@
 ## Category-zhCN: 物品栏
 ## Category-zhTW: 物品欄
 ## Author: Mot (@6mot, @tflo)
+## AllowAddOnTableAccess: 1
 ## X-Wago-ID: RBKp5yGE
 ## X-Curse-Project-ID: 784763
 ## X-License: GPLv3
