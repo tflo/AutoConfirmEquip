@@ -87,6 +87,8 @@ local QUALITY_COLORS = {
 	[8] = '\124cnITEM_WOW_TOKEN_COLOR:',
 }
 
+local BLOCK_SEP = C_ACEQ .. '++++++++++++++++++++++++++++++++++++++++++'
+
 
 --[[===========================================================================
 	Main
@@ -175,7 +177,8 @@ function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 		end
 	else
 		if msg == '' then
-			print(
+			local lines = {
+				BLOCK_SEP,
 				MSG_PREFIX
 					.. 'Currently allowed qualities:\n'
 					.. allowed_to_prettystr()
@@ -192,8 +195,12 @@ function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 				MSG_PREFIX
 					.. 'Here a list of all qualities:\n'
 					.. all_qualities_to_prettystr()
-					.. '.'
-			)
+					.. '.',
+				BLOCK_SEP,
+			}
+			for _, line in ipairs(lines) do
+				print(line)
+			end
 		end
 	end
 end
