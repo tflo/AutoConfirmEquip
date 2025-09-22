@@ -61,7 +61,7 @@ local db = _G.autoconfirmequip_database
 local C_ACEQ = '\124cff2196f3'
 local C_KW = '\124cnORANGE_FONT_COLOR:'
 local C_EMPH = '\124cnYELLOW_FONT_COLOR:'
-local MSG_PREFIX = C_ACEQ .. "Auto-Confirm Equip\124r:"
+local MSG_PREFIX = C_ACEQ .. "Auto-Confirm Equip\124r: "
 
 local QUALITY_NAMES = {
 	[0] = 'Poor',
@@ -94,7 +94,7 @@ local QUALITY_COLORS = {
 
 local function is_allowed_quality()
 	if InCombatLockdown() then
-		print(MSG_PREFIX .. ' Cannot auto-confirm in combat!')
+		print(MSG_PREFIX .. 'Cannot auto-confirm in combat!')
 		return
 	end
 	local kind, _, link = GetCursorInfo()
@@ -165,21 +165,21 @@ function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 		t = cleanup(t)
 		if #t >=1 then
 			db.qualities_allowed = t
-			print(MSG_PREFIX,
+			print(MSG_PREFIX ..
 				'Allowed qualities are now:\n' .. allowed_to_prettystr() .. '.'
 			)
 		else
-			print(MSG_PREFIX,
+			print(MSG_PREFIX ..
 				'No valid quality numbers entered. Could not build a new table, the previous quality table will be used instead.'
 			)
 		end
 	else
 		if msg == '' then
-			print(MSG_PREFIX,
+			print(MSG_PREFIX ..
 				'Currently allowed qualities:\n' .. allowed_to_prettystr() .. '.'
 				.. '\nTo change this, type ' .. C_KW .. '/aceq\124r followed by the quality number(s) where you don\'t want to see the equip confirmation dialog. \nFor example: ' .. C_KW .. '/aceq 0123\124r allows qualities 0 (gray) through 3 (blue). ' .. C_KW .. '/aceq 2\124r allows only quality 2 (green), ' .. C_KW .. '/aceq 02\124r allows only quality 0 (gray) and quality 2 (green), and so on.'
 			)
-			print(MSG_PREFIX,
+			print(MSG_PREFIX ..
 				'Here a list of all qualities:\n' .. all_qualities_to_prettystr() .. '.'
 			)
 		end
