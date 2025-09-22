@@ -3,6 +3,14 @@
 
 local MYNAME = ...
 
+local GetCursorInfo = _G.GetCursorInfo
+local tonumber = _G.tonumber
+local format = _G.format
+local EquipPendingItem = _G.EquipPendingItem
+local ipairs = _G.ipairs
+local GetItemInfo = _G.GetItemInfo
+local strtrim = _G.strtrim
+
 
 --[[===========================================================================
 	SV and defaults
@@ -41,19 +49,9 @@ local db = _G.autoconfirmequip_database
 -- db.db_version = DB_VERSION_CURRENT
 
 
-
-
-
-
-
-local GetCursorInfo = _G.GetCursorInfo
-local tonumber = _G.tonumber
-local format = _G.format
-local EquipPendingItem = _G.EquipPendingItem
-local ipairs = _G.ipairs
-local GetItemInfo = _G.GetItemInfo
-local strtrim = _G.strtrim
-local gmatch = _G.gmatch
+--[[===========================================================================
+	Constants
+===========================================================================]]--
 
 local C_ACEQ = '\124cff2196f3'
 local C_KW = '\124cnORANGE_FONT_COLOR:'
@@ -83,6 +81,28 @@ local quality_colors = {
 	[7] = '\124cnHEIRLOOM_BLUE_COLOR:',
 	[8] = '\124cnITEM_WOW_TOKEN_COLOR:',
 }
+
+
+--[[===========================================================================
+	Main
+===========================================================================]]--
+
+local function EQUIP_BIND_CONFIRM(slot)
+	if (GetCursorInfo()) == 'item' then
+		local itemquality = tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo()))))
+		for _, v in ipairs(db.qualities_allowed) do
+			if itemquality == v then
+				EquipPendingItem(slot)
+				return
+			end
+		end
+	end
+end
+
+
+--[[===========================================================================
+	CLI
+===========================================================================]]--
 
 local function allowed_to_prettystr()
 	local str = ''
@@ -154,18 +174,6 @@ end
 
 local ef = CreateFrame('Frame', MYNAME .. '_eventframe')
 
-local function EQUIP_BIND_CONFIRM(slot)
-	if (GetCursorInfo()) == 'item' then
-		local itemquality = tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo()))))
-		for _, v in ipairs(db.qualities_allowed) do
-			if itemquality == v then
-				EquipPendingItem(slot)
-				return
-			end
-		end
-	end
-end
-
 local event_handlers = {
 	['EQUIP_BIND_CONFIRM'] = EQUIP_BIND_CONFIRM,
 	['ADDON_LOADED'] = ADDON_LOADED,
@@ -178,6 +186,7 @@ end
 ef:SetScript('OnEvent', function(_, event, ...)
 	event_handlers[event](...)
 end)
+
 
 
 --[[ Notes =====================================================================
