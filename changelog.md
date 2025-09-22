@@ -4,6 +4,20 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 3.0.0 (2025-09-22)
+
+- Now handles also the “You cannot equip this item. Its appearance will be added to your collection and it will become Warbound until equipped.” confirmation.
+    - This new feature is not yet thoroughly tested. Kindly report any issues to the [issues tracker](https://github.com/tflo/AutoConfirmEquip/issues) (avoid posting issues in the CurseForge comments).
+- Both auto-confirmations (Soulbound & Warbound) use the same allowed-quality settings, as set per `/aceq <number-sequence>` (default: `0237`)
+- Added a shorter slash command: `/acq`
+    - The other commands (`/aceq` and `/autoconfirmequip`) remain functional.
+    - Please report if `/acq` conflicts with any of your other addons.
+- Any confirmation attempts while in combat lockdown are prevented now.
+- Modernized event and database handling.
+- Refactored main functions and console text, restructured code, various other optimizations.
+- Updated readme/description.
+
+
 #### 2.1.7 (2025-09-14)
 
 - Standardized licensing information in the files.
