@@ -93,6 +93,10 @@ local QUALITY_COLORS = {
 ===========================================================================]]--
 
 local function is_allowed_quality()
+	if InCombatLockdown() then
+		print(MSG_PREFIX .. ' Cannot auto-confirm in combat!')
+		return
+	end
 	local kind, _, link = GetCursorInfo()
 	if kind == 'item' then
 		local _, _, quality = GetItemInfo(link)
@@ -116,6 +120,10 @@ local function CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM()
 	end
 end
 
+-- Note on combat check: Not necessary for the warband function (Blizz blocks
+-- this natively, so the event will not fire), but needed for `EquipPendingItem`
+-- which raises 'action blocked' in combat. So we can as well check in both
+-- cases.
 
 --[[===========================================================================
 	CLI
