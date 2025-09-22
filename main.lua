@@ -25,12 +25,17 @@ local defaults = {
 	['qualities_allowed'] = { 0, 2, 3, 7 },
 }
 
+-- Do not re-add an array element the user has removed.
+local protected_arrays = {
+	['qualities_allowed'] = true,
+}
+
 local function merge_defaults(src, dst)
 	for k, v in pairs(src) do
 		local src_type = type(v)
 		if src_type == 'table' then
 			if type(dst[k]) ~= 'table' then dst[k] = {} end
-			merge_defaults(v, dst[k])
+			if not protected_arrays[k] or #dst[k] == 0 then merge_defaults(v, dst[k]) end
 		elseif type(dst[k]) ~= src_type then
 			dst[k] = v
 		end
