@@ -87,15 +87,27 @@ local QUALITY_COLORS = {
 	Main
 ===========================================================================]]--
 
-local function EQUIP_BIND_CONFIRM(slot)
-	if (GetCursorInfo()) == 'item' then
-		local itemquality = tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo()))))
+local function is_allowed_quality()
+	local kind, _, link = GetCursorInfo()
+	if kind == 'item' then
+		local _, _, quality = GetItemInfo(link)
 		for _, v in ipairs(db.qualities_allowed) do
-			if itemquality == v then
-				EquipPendingItem(slot)
-				return
-			end
+			if quality == v then return true end
 		end
+	end
+end
+
+local function EQUIP_BIND_CONFIRM(slot)
+	if is_allowed_quality() then
+		EquipPendingItem(slot)
+		return
+	end
+end
+
+local function CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM()
+	if is_allowed_quality() then
+		StaticPopup1Button1:Click()
+		return
 	end
 end
 
@@ -175,6 +187,7 @@ local ef = CreateFrame('Frame', MYNAME .. '_eventframe')
 
 local event_handlers = {
 	['EQUIP_BIND_CONFIRM'] = EQUIP_BIND_CONFIRM,
+	['CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM'] = CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM,
 }
 
 for event in pairs(event_handlers) do
