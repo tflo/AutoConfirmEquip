@@ -175,7 +175,6 @@ local ef = CreateFrame('Frame', MYNAME .. '_eventframe')
 
 local event_handlers = {
 	['EQUIP_BIND_CONFIRM'] = EQUIP_BIND_CONFIRM,
-	['ADDON_LOADED'] = ADDON_LOADED,
 }
 
 for event in pairs(event_handlers) do
