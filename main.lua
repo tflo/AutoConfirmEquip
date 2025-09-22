@@ -153,7 +153,8 @@ local function cleanup(sortedtable) -- remove dupes
 	return result
 end
 
-SLASH_AUTOCONFIRMEQUIP1, SLASH_AUTOCONFIRMEQUIP2 = '/aceq', '/autoconfirmequip'
+SLASH_AUTOCONFIRMEQUIP1, SLASH_AUTOCONFIRMEQUIP2, SLASH_AUTOCONFIRMEQUIP2 =
+	'/acq', '/aceq', '/autoconfirmequip'
 
 function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 	if strfind(msg, '%d') then
@@ -181,15 +182,13 @@ function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 					.. '.'
 					.. '\nTo change this, type '
 					.. C_KW
-					.. "/aceq\124r followed by the quality number(s) where you don't want to see the equip confirmation dialog. \nFor example: "
+					.. "/acq\124r followed by the quality number(s) where you don't want to see the equip confirmation dialog. \nFor example: "
 					.. C_KW
-					.. '/aceq 0123\124r allows qualities 0 (gray) through 3 (blue). '
+					.. '/acq 0123\124r allows qualities 0 (gray) through 3 (blue). '
 					.. C_KW
-					.. '/aceq 2\124r allows only quality 2 (green), '
+					.. '/acq 2\124r allows only quality 2 (green), '
 					.. C_KW
-					.. '/aceq 02\124r allows only quality 0 (gray) and quality 2 (green), and so on.'
-			)
-			print(
+					.. '/acq 02\124r allows only quality 0 (gray) and quality 2 (green), and so on.',
 				MSG_PREFIX
 					.. 'Here a list of all qualities:\n'
 					.. all_qualities_to_prettystr()
