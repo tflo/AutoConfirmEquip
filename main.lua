@@ -1,11 +1,10 @@
 -- SPDX-License-Identifier: GPL-3.0-or-later
 -- Copyright (c) 2022-2025 Thomas Floeren
 
-local addon_name, a = ...
+local MYNAME, a = ...
+---@diagnostic disable-next-line
 autoconfirmequip_database = autoconfirmequip_database or {}
 
-local _
-local CreateFrame = _G.CreateFrame
 local GetCursorInfo = _G.GetCursorInfo
 local tonumber = _G.tonumber
 local format = _G.format
@@ -43,32 +42,6 @@ local quality_colors = {
 	[7] = '\124cnHEIRLOOM_BLUE_COLOR:',
 	[8] = '\124cnITEM_WOW_TOKEN_COLOR:',
 }
-
-
-local ef = CreateFrame 'frame'
-ef:RegisterEvent 'ADDON_LOADED'
-ef:RegisterEvent 'EQUIP_BIND_CONFIRM'
-
-ef:SetScript('OnEvent', function(self, event, ...)
-	if event == 'ADDON_LOADED' then
-		if ... == addon_name then
-			ef:UnregisterEvent 'ADDON_LOADED'
-			a.db = autoconfirmequip_database
-			a.db.qualities_allowed = a.db.qualities_allowed or { 0, 2, 3, 7 }
-		end
-	else
-		local slot = ...
-		if (GetCursorInfo()) == 'item' then
-			local itemquality = tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo()))))
-			for _, v in ipairs(a.db.qualities_allowed) do
-				if itemquality == v then
-					EquipPendingItem(slot)
-					return
-				end
-			end
-		end
-	end
-end)
 
 local function allowed_to_prettystr()
 	local str = ''
@@ -133,6 +106,45 @@ end
 -- 3: Rare (blue) -- 4: Epic (purple)  -- 5: Legendary (orange)
 -- 6: Artifact    -- 7: Heirloom       -- 8: WoWToken
 
+
+--[[===========================================================================
+	Event stuff
+===========================================================================]]--
+
+local ef = CreateFrame('Frame', MYNAME .. '_eventframe')
+
+local function ADDON_LOADED(...)
+	if ... == MYNAME then
+		ef:UnregisterEvent 'ADDON_LOADED'
+		a.db = autoconfirmequip_database
+		a.db.qualities_allowed = a.db.qualities_allowed or { 0, 2, 3, 7 }
+	end
+end
+
+local function EQUIP_BIND_CONFIRM(slot)
+	if (GetCursorInfo()) == 'item' then
+		local itemquality = tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo()))))
+		for _, v in ipairs(a.db.qualities_allowed) do
+			if itemquality == v then
+				EquipPendingItem(slot)
+				return
+			end
+		end
+	end
+end
+
+local event_handlers = {
+	['EQUIP_BIND_CONFIRM'] = EQUIP_BIND_CONFIRM,
+	['ADDON_LOADED'] = ADDON_LOADED,
+}
+
+for event in pairs(event_handlers) do
+	ef:RegisterEvent(event)
+end
+
+ef:SetScript('OnEvent', function(_, event, ...)
+	event_handlers[event](...)
+end)
 
 
 --[[ Notes =====================================================================
