@@ -16,7 +16,6 @@
 ## Category-zhCN: 物品栏
 ## Category-zhTW: 物品欄
 ## Author: Mot (@6mot, @tflo)
-## AllowAddOnTableAccess: 1
 ## X-Wago-ID: RBKp5yGE
 ## X-Curse-Project-ID: 784763
 ## SPDX-License-Identifier: GPL-3.0-or-later

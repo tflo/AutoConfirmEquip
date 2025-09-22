@@ -1,7 +1,7 @@
 -- SPDX-License-Identifier: GPL-3.0-or-later
 -- Copyright (c) 2022-2025 Thomas Floeren
 
-local MYNAME, a = ...
+local MYNAME = ...
 
 
 --[[===========================================================================
@@ -33,7 +33,6 @@ end
 _G.autoconfirmequip_database = _G.autoconfirmequip_database or {}
 merge_defaults(defaults, _G.autoconfirmequip_database)
 local db = _G.autoconfirmequip_database
-a.db = db
 
 -- DB cleanup, once necessary
 -- if not db.db_version or db.db_version < DB_VERSION_CURRENT then
@@ -87,7 +86,7 @@ local quality_colors = {
 
 local function allowed_to_prettystr()
 	local str = ''
-	for _, v in ipairs(a.db.qualities_allowed) do
+	for _, v in ipairs(db.qualities_allowed) do
 		str = format('%s(%s%s\124r)%2$s%4$s\124r, ', str, quality_colors[v], v, quality_names[v])
 	end
 	return strtrim(str, ' ,')
@@ -121,7 +120,7 @@ function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 		sort(t)
 		t = cleanup(t)
 		if #t >=1 then
-			a.db.qualities_allowed = t
+			db.qualities_allowed = t
 			print(MSG_PREFIX,
 				'Allowed qualities are now:\n' .. allowed_to_prettystr() .. '.'
 			)
@@ -158,7 +157,7 @@ local ef = CreateFrame('Frame', MYNAME .. '_eventframe')
 local function EQUIP_BIND_CONFIRM(slot)
 	if (GetCursorInfo()) == 'item' then
 		local itemquality = tonumber(format('%3$s', GetItemInfo(format('%3$s', GetCursorInfo()))))
-		for _, v in ipairs(a.db.qualities_allowed) do
+		for _, v in ipairs(db.qualities_allowed) do
 			if itemquality == v then
 				EquipPendingItem(slot)
 				return
