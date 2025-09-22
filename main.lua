@@ -60,7 +60,7 @@ local db = _G.autoconfirmequip_database
 
 local C_ACEQ = '\124cff2196f3'
 local C_KW = '\124cnORANGE_FONT_COLOR:'
-local C_EMPH = '\124cnYELLOW_FONT_COLOR:'
+-- local C_EMPH = '\124cnYELLOW_FONT_COLOR:'
 local MSG_PREFIX = C_ACEQ .. "Auto-Confirm Equip\124r: "
 
 local QUALITY_NAMES = {
@@ -92,7 +92,7 @@ local QUALITY_COLORS = {
 	Main
 ===========================================================================]]--
 
-local function is_allowed_quality()
+local function ready_to_go()
 	if InCombatLockdown() then
 		print(MSG_PREFIX .. 'Cannot auto-confirm in combat!')
 		return
@@ -107,16 +107,12 @@ local function is_allowed_quality()
 end
 
 local function EQUIP_BIND_CONFIRM(slot)
-	if is_allowed_quality() then
-		EquipPendingItem(slot)
-		return
-	end
+	if ready_to_go() then EquipPendingItem(slot) end
 end
 
 local function CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM()
-	if is_allowed_quality() then
-		StaticPopup1Button1:Click()
-		return
+	if ready_to_go() then
+		if StaticPopup1Button1 then StaticPopup1Button1:Click() end
 	end
 end
 
@@ -124,6 +120,10 @@ end
 -- this natively, so the event will not fire), but needed for `EquipPendingItem`
 -- which raises 'action blocked' in combat. So we can as well check in both
 -- cases.
+
+-- Using `StaticPopup1Button1:Click()` with a timer raises "tried to call the
+-- protected function 'ConvertItemToBindToAccount()'"
+
 
 --[[===========================================================================
 	CLI
@@ -145,7 +145,7 @@ local function all_qualities_to_prettystr()
 	return strtrim(str, ' -')
 end
 
-local function cleanup(sortedtable)
+local function cleanup(sortedtable) -- remove dupes
 	local result = {}
 	for k, v in ipairs(sortedtable) do
 		if v >= 0 and v <= 8 and v ~= sortedtable[k + 1] then tinsert(result, v) end
@@ -163,24 +163,37 @@ function SlashCmdList.AUTOCONFIRMEQUIP(msg)
 		end
 		sort(t)
 		t = cleanup(t)
-		if #t >=1 then
+		if #t >= 1 then
 			db.qualities_allowed = t
-			print(MSG_PREFIX ..
-				'Allowed qualities are now:\n' .. allowed_to_prettystr() .. '.'
-			)
+			print(MSG_PREFIX .. 'Allowed qualities are now:\n' .. allowed_to_prettystr() .. '.')
 		else
-			print(MSG_PREFIX ..
-				'No valid quality numbers entered. Could not build a new table, the previous quality table will be used instead.'
+			print(
+				MSG_PREFIX
+					.. 'No valid quality numbers entered. Could not build a new table, the previous quality table will be used instead.'
 			)
 		end
 	else
 		if msg == '' then
-			print(MSG_PREFIX ..
-				'Currently allowed qualities:\n' .. allowed_to_prettystr() .. '.'
-				.. '\nTo change this, type ' .. C_KW .. '/aceq\124r followed by the quality number(s) where you don\'t want to see the equip confirmation dialog. \nFor example: ' .. C_KW .. '/aceq 0123\124r allows qualities 0 (gray) through 3 (blue). ' .. C_KW .. '/aceq 2\124r allows only quality 2 (green), ' .. C_KW .. '/aceq 02\124r allows only quality 0 (gray) and quality 2 (green), and so on.'
+			print(
+				MSG_PREFIX
+					.. 'Currently allowed qualities:\n'
+					.. allowed_to_prettystr()
+					.. '.'
+					.. '\nTo change this, type '
+					.. C_KW
+					.. "/aceq\124r followed by the quality number(s) where you don't want to see the equip confirmation dialog. \nFor example: "
+					.. C_KW
+					.. '/aceq 0123\124r allows qualities 0 (gray) through 3 (blue). '
+					.. C_KW
+					.. '/aceq 2\124r allows only quality 2 (green), '
+					.. C_KW
+					.. '/aceq 02\124r allows only quality 0 (gray) and quality 2 (green), and so on.'
 			)
-			print(MSG_PREFIX ..
-				'Here a list of all qualities:\n' .. all_qualities_to_prettystr() .. '.'
+			print(
+				MSG_PREFIX
+					.. 'Here a list of all qualities:\n'
+					.. all_qualities_to_prettystr()
+					.. '.'
 			)
 		end
 	end
@@ -207,9 +220,7 @@ for event in pairs(event_handlers) do
 	ef:RegisterEvent(event)
 end
 
-ef:SetScript('OnEvent', function(_, event, ...)
-	event_handlers[event](...)
-end)
+ef:SetScript('OnEvent', function(_, event, ...) event_handlers[event](...) end)
 
 
 
