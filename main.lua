@@ -2,8 +2,50 @@
 -- Copyright (c) 2022-2025 Thomas Floeren
 
 local MYNAME, a = ...
+
+
+--[[===========================================================================
+	SV and defaults
+===========================================================================]]--
+
+-- Note that we have `LoadSavedVariablesFirst: 1` in the toc, so no need to wait for ADDON_LOADED
+
+local DB_VERSION_CURRENT = 1
+
+local defaults = {
+	['db_version'] = DB_VERSION_CURRENT,
+	['qualities_allowed'] = { 0, 2, 3, 7 },
+}
+
+local function merge_defaults(src, dst)
+	for k, v in pairs(src) do
+		local src_type = type(v)
+		if src_type == 'table' then
+			if type(dst[k]) ~= 'table' then dst[k] = {} end
+			merge_defaults(v, dst[k])
+		elseif type(dst[k]) ~= src_type then
+			dst[k] = v
+		end
+	end
+end
+
 ---@diagnostic disable-next-line
-autoconfirmequip_database = autoconfirmequip_database or {}
+_G.autoconfirmequip_database = _G.autoconfirmequip_database or {}
+merge_defaults(defaults, _G.autoconfirmequip_database)
+local db = _G.autoconfirmequip_database
+a.db = db
+
+-- DB cleanup, once necessary
+-- if not db.db_version or db.db_version < DB_VERSION_CURRENT then
+-- 	-- clean up old keys
+-- end
+-- db.db_version = DB_VERSION_CURRENT
+
+
+
+
+
+
 
 local GetCursorInfo = _G.GetCursorInfo
 local tonumber = _G.tonumber
@@ -112,14 +154,6 @@ end
 ===========================================================================]]--
 
 local ef = CreateFrame('Frame', MYNAME .. '_eventframe')
-
-local function ADDON_LOADED(...)
-	if ... == MYNAME then
-		ef:UnregisterEvent 'ADDON_LOADED'
-		a.db = autoconfirmequip_database
-		a.db.qualities_allowed = a.db.qualities_allowed or { 0, 2, 3, 7 }
-	end
-end
 
 local function EQUIP_BIND_CONFIRM(slot)
 	if (GetCursorInfo()) == 'item' then
