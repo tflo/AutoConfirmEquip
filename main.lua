@@ -58,7 +58,7 @@ local C_KW = '\124cnORANGE_FONT_COLOR:'
 local C_EMPH = '\124cnYELLOW_FONT_COLOR:'
 local MSG_PREFIX = C_ACEQ .. "Auto-Confirm Equip\124r:"
 
-local quality_names = {
+local QUALITY_NAMES = {
 	[0] = 'Poor',
 	[1] = 'Common',
 	[2] = 'Uncommon',
@@ -70,7 +70,7 @@ local quality_names = {
 	[8] = 'WoWToken',
 }
 
-local quality_colors = {
+local QUALITY_COLORS = {
 	[0] = '\124cnITEM_POOR_COLOR:',
 	[1] = '\124cnWHITE_FONT_COLOR:',
 	[2] = '\124cnUNCOMMON_GREEN_COLOR:',
@@ -107,7 +107,7 @@ end
 local function allowed_to_prettystr()
 	local str = ''
 	for _, v in ipairs(db.qualities_allowed) do
-		str = format('%s(%s%s\124r)%2$s%4$s\124r, ', str, quality_colors[v], v, quality_names[v])
+		str = format('%s(%s%s\124r)%2$s%4$s\124r, ', str, QUALITY_COLORS[v], v, QUALITY_NAMES[v])
 	end
 	return strtrim(str, ' ,')
 end
@@ -115,7 +115,7 @@ end
 local function all_qualities_to_prettystr()
 	local str = ''
 	for q = 0, 8 do
-		str = format('%s(%s%s\124r)%2$s%4$s\124r - ', str, quality_colors[q], q, quality_names[q])
+		str = format('%s(%s%s\124r)%2$s%4$s\124r - ', str, QUALITY_COLORS[q], q, QUALITY_NAMES[q])
 	end
 	return strtrim(str, ' -')
 end
@@ -123,7 +123,6 @@ end
 local function cleanup(sortedtable)
 	local result = {}
 	for k, v in ipairs(sortedtable) do
--- 		v= tonumber(v)
 		if v >= 0 and v <= 8 and v ~= sortedtable[k + 1] then tinsert(result, v) end
 	end
 	return result
