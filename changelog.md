@@ -4,6 +4,11 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 3.0.1 (2025-10-07)
+
+- toc bumped to 110205.
+- Minor cosmetic changes to the all-qualities string in the console print.
+
 #### 3.0.0 (2025-09-22)
 
 - Now handles also the “You cannot equip this item. Its appearance will be added to your collection and it will become Warbound until equipped.” confirmation.
@@ -16,7 +21,6 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 - Modernized event and database handling.
 - Refactored main functions and console text, restructured code, various other optimizations.
 - Updated readme/description.
-
 
 #### 2.1.7 (2025-09-14)
 

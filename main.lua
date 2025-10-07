@@ -142,9 +142,9 @@ end
 local function all_qualities_to_prettystr()
 	local str = ''
 	for q = 0, 8 do
-		str = format('%s(%s%s\124r)%2$s%4$s\124r - ', str, QUALITY_COLORS[q], q, QUALITY_NAMES[q])
+		str = format('%s(%s%s\124r)%2$s%4$s\124r – ', str, QUALITY_COLORS[q], q, QUALITY_NAMES[q])
 	end
-	return strtrim(str, ' -')
+	return strtrim(str, ' –')
 end
 
 local function cleanup(sortedtable) -- remove dupes
