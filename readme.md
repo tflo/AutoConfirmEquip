@@ -8,9 +8,13 @@ This is a super-lightweight addon that does only one thing: **Eliminating the co
 
 Since version 3 (September 2025), it now handles also the **Warbound dialogs** (“You cannot equip this item. Its appearance will be added to your collection and it will become Warbound until equipped.”). Your existing quality settings apply. — As a new feature, this may still be buggy. Thanks for reporting any issues to the [issue tracker](https://github.com/tflo/AutoConfirmEquip/issues).
 
-___If you’re having trouble reading this description on CurseForge, you might want to try switching to the [REPO PAGE](https://github.com/tflo/AutoConfirmEquip?tab=readme-ov-file#auto-confirm-equip). You’ll find the exact same text there, but it’s much easier to read and free from CurseForge’s rendering errors.___
+---
 
-## What the addon does, and why
+*If you’re having trouble reading this description on CurseForge, you might want to try switching to the [Repo Page](https://github.com/tflo/AutoConfirmEquip?tab=readme-ov-file#auto-confirm-equip). You’ll find the exact same text there, but it’s much easier to read and free from CurseForge’s rendering errors.*
+
+---
+
+## What the addon does (and why)
 
 There are already addons that eliminate confirmation dialogs, but I had two problems with those:
 
