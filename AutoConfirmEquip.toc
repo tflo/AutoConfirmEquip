@@ -18,7 +18,7 @@
 ## Author: Mot (@6mot, @tflo)
 ## X-Wago-ID: RBKp5yGE
 ## X-Curse-Project-ID: 784763
-## SPDX-License-Identifier: GPL-3.0-or-later
+## SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 ## X-Localizations: enUS
 ## LoadSavedVariablesFirst: 1
 ## SavedVariables: autoconfirmequip_database
