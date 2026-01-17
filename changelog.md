@@ -4,6 +4,12 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 3.0.3 (2026-01-17)
+
+- Bumped compatibility flags to 12000+
+- This is unapproved, but the dumb Blizz changes forces us to do this, 
+- because otherwise a still working addon would be deactivated flat out.
+
 #### 3.0.2 (2025-12-03)
 
 - Change license, add CONTRIBUTING/CLA.
