@@ -4,6 +4,11 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 3.0.4 (2026-03-02)
+
+- Remove old interface compatibility flags from toc.
+- Re-add X-Category to toc. SAM reads it.
+
 #### 3.0.3 (2026-01-17)
 
 - Bumped compatibility flags to 12000+
