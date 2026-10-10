@@ -8,7 +8,7 @@ local tonumber = _G.tonumber
 local format = _G.format
 local EquipPendingItem = _G.EquipPendingItem
 local ipairs = _G.ipairs
-local GetItemInfo = _G.GetItemInfo
+local GetItemInfo = C_Item.GetItemInfo
 local strtrim = _G.strtrim
 
 
@@ -101,7 +101,7 @@ local function ready_to_go()
 	end
 	local kind, _, link = GetCursorInfo()
 	if kind == 'item' then
-		local _, _, quality = GetItemInfo(link)
+		local _, _, quality = C_Item.GetItemInfo(link)
 		for _, v in ipairs(db.qualities_allowed) do
 			if quality == v then return true end
 		end
