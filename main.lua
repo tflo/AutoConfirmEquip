@@ -3,15 +3,6 @@
 
 local MYNAME = ...
 
-local GetCursorInfo = _G.GetCursorInfo
-local tonumber = _G.tonumber
-local format = _G.format
-local EquipPendingItem = _G.EquipPendingItem
-local ipairs = _G.ipairs
-local GetItemInfo = C_Item.GetItemInfo
-local strtrim = _G.strtrim
-
-
 --[[===========================================================================
 	SV and defaults
 ===========================================================================]]--
