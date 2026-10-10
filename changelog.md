@@ -4,6 +4,15 @@ To see all commits, including all alpha changes, [*go here*](https://github.com/
 
 ## Releases
 
+#### 3.0.6 (2026-10-10)
+
+- 12.1.5 API compatibility: `C_Item.GetItemInfo`
+- toc: Add 12.1.5 compatibility flag; remove old flags.
+- toc: Add compatibility flag for Forever beta (16001).
+    - This is experimental, as I haven’t purchased beta access.
+    - If you notice minor glitches in Forever (for example, the occasional Lua error when doing a specific thing), please report them at the [Issue tracker](https://github.com/tflo/AutoConfirmEquip/issues).
+    - If you experience major issues (for example, Lua errors immediately upon login), please disable Auto-Confirm Equip and report them to the [Issue tracker](https://github.com/tflo/AutoConfirmEquip/issues).
+
 #### 3.0.5 (2026-06-14)
 
 - toc bump, no changes.
